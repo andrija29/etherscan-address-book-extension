@@ -1,0 +1,42 @@
+{
+  "name": "etherscan-address-book-extension",
+  "version": "0.0.1",
+  "description": "This extension is supposed to allow you to add any address from the blockchain into your directory and give it a nickname so next time you see it you see it by it's nickname.",
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.19",
+    "@types/react-dom": "^17.0.9",
+    "clean-webpack-plugin": "^4.0.0-alpha.0",
+    "copy-webpack-plugin": "^9.0.1",
+    "html-webpack-plugin": "^5.3.2",
+    "ts-loader": "^9.2.5",
+    "typescript": "^4.4.2",
+    "webpack": "^5.51.1",
+    "webpack-cli": "^4.8.0"
+  },
+  "scripts": {
+    "dev": "webpack --watch --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrija29/etherscan-address-book-extension.git"
+  },
+  "keywords": [
+    "etherscan",
+    "address",
+    "book",
+    "chrome",
+    "firefox",
+    "extension"
+  ],
+  "author": "andrija29",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/andrija29/etherscan-address-book-extension/issues"
+  },
+  "homepage": "https://github.com/andrija29/etherscan-address-book-extension#readme"
+}
