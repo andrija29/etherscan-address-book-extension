@@ -1,25 +1,20 @@
 import { Address } from "../models/address";
-import { Message, MessageType } from "../models/messaging";
+import { DBDictionary } from "../popup/data/redux/types";
+import { getBucket } from "@extend-chrome/storage";
 
 import "../styles/site_style.scss";
 
 let dictionary: Address[] = [];
 
 //This listens for dictionary changes and translates using new dictionary.
-chrome.runtime.onMessage.addListener(
-    function(request) {
-        let message = request as Message;
-        switch(request.type){
-            case MessageType.ClearAndUpdate:
-                dictionary = message.data || [];
-                findAndReplaceAddresses();
-                break;
-        }
-    }
-);
+let dbStore = getBucket<DBDictionary>("etherscan_dictionary_bucket");
+dbStore.valueStream.subscribe((values) => {
+    dictionary = values.allAddresses;
+    findAndReplaceAddresses();
+});
 
 function findAndReplaceAddresses(): void{
-    let all = document.getElementsByClassName("hash-tag");
+    let all = document.querySelectorAll("a, #mainaddress");
 
     //NOTE: This could probably be done faster...
     //Don't waste resources if there is nothing to translate

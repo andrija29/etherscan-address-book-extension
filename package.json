@@ -1,10 +1,10 @@
 {
   "name": "etherscan-address-book-extension",
-  "version": "0.0.1",
+  "version": "0.0.5",
   "description": "This extension is supposed to allow you to add any address from the blockchain into your directory and give it a nickname so next time you see it you see it by it's nickname.",
   "dependencies": {
+    "@extend-chrome/storage": "^1.5.0",
     "@reduxjs/toolkit": "^1.6.1",
-    "localforage": "^1.10.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.4",

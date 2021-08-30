@@ -17,4 +17,8 @@ export type AddressAction = {
     list?: Address[]
 };
 
+export type DBDictionary = {
+    allAddresses: Address[]
+};
+
 export type DispatchType = (args: AddressAction) => AddressAction;

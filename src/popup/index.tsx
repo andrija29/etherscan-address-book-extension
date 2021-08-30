@@ -7,20 +7,6 @@ import { Settings } from "./pages/Settings";
 
 import { Provider } from 'react-redux';
 import store from './data/redux/store';
-import { Address } from "../models/address";
-import { Message, MessageType } from "../models/messaging";
-
-//This is low level function that has task to delegate signal that dictionary changed! We don't care to pinpoint what changed, we just need to see changes!
-store.subscribe(detectedChangeInReduxStore);
-function detectedChangeInReduxStore() {
-    let newState = store.getState().dictionary as Address[];
-    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-        let id = Number(tabs[0].id);
-        chrome.tabs.sendMessage(id, { type: MessageType.ClearAndUpdate, data: newState } as Message, function(response) {
-          console.log(response);
-        });
-      });
-}
 
 interface IProps {
 }
