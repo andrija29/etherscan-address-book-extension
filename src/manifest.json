@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "Etherscan adress book",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "action": {
       "default_title": "Address book settings",
       "default_popup": "index.html",
@@ -12,15 +12,27 @@
       }
     },
     "description": "This extension is supposed to allow you to add any address from the blockchain into your directory and give it a nickname so next time you see it you see it by it's nickname.",
+    "content_scripts": [
+      {
+        "matches": ["*://etherscan.io/*"],
+        "js": ["translator.js"],
+        "run_at": "document_idle",
+        "css": []
+      }
+    ],
     "icons": {
       "16": "icon16.png", "48": "icon48.png", "128": "icon128.png"
     },
     "author": "https://github.com/andrija29",
     "background": {
       "service_worker": "background.js"
+      
     },
     "host_permissions": [
-      "https://etherscan.io/*"
+      "*://etherscan.io/*"
     ],
-    "permissions": ["storage", "tabs"]
+    "externally_connectable": {
+      "matches": ["*://etherscan.io/*"]
+    },
+    "permissions": ["storage", "tabs", "activeTab"]
 } 
